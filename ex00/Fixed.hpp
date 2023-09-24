@@ -17,7 +17,7 @@ class Fixed
 
 	private:
 		int					_value;
-		static const int	_literal_int = 8;
+		static const int	_fractional_bit = 8;
 };
 
 #endif
