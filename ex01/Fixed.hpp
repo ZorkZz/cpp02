@@ -22,6 +22,7 @@ class Fixed
 		int					_value;
 		static const int	_fractional_bit = 8;
 };
+
 std::ostream	&operator << (std::ostream &os, const Fixed &fixed);
 
 #endif
