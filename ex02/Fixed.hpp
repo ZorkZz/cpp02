@@ -19,6 +19,8 @@ class Fixed
 		int			operator == (const Fixed &fixed);
 		int			operator != (const Fixed &fixed);
 		Fixed			&operator = (const Fixed &fixed);
+		Fixed			operator + (const Fixed &fixed);
+		Fixed			operator - (const Fixed &fixed);
 		Fixed			operator * (const Fixed &fixed);
 		Fixed			operator / (const Fixed &fixed);
 		Fixed			&operator ++ ();

@@ -18,6 +18,7 @@ int	main(void)
 	std::cout << d << std::endl;
 	std::cout << d-- << std::endl;
 	std::cout << c << std::endl;
+	std::cout << a + b << std::endl;
 	std::cout << Fixed::max( a, b ) << std::endl;
 	std::cout << Fixed::min( c, d ) << std::endl;
 	return 0;

@@ -20,7 +20,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ) $(HEADER) Makefile
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-	@printf	"\033[1;32m \r\033[2K Compiling $(NAME_CLIENT) : DONE \033[0m\n"
+	@printf	"\033[1;32m \r\033[2K Compiling $(NAME) : DONE \033[0m\n"
 
 clean:
 	@$(RM) $(OBJ)

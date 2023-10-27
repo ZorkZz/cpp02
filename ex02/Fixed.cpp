@@ -68,6 +68,16 @@ Fixed	&Fixed::operator = (const Fixed &fixed)
 	return (*this);
 }
 
+Fixed	Fixed::operator+(const Fixed &fixed)
+{
+	return Fixed(this->toFloat() + fixed.toFloat());
+}
+
+Fixed	Fixed::operator-(const Fixed &fixed)
+{
+	return Fixed(this->toFloat() - fixed.toFloat());
+}
+
 Fixed	Fixed::operator*(const Fixed &fixed)
 {
 	return Fixed(this->toFloat() * fixed.toFloat());
