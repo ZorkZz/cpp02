@@ -97,10 +97,11 @@ Fixed	&Fixed::operator++()
 	return (*this);
 }
 
-Fixed	&Fixed::operator++(int)
+Fixed	Fixed::operator++(int)
 {
-	this->_value++;
-	return (*this);
+	Fixed	tmp = *this;
+	++*this;
+	return (tmp);
 }
 
 Fixed	&Fixed::operator--()
@@ -109,10 +110,11 @@ Fixed	&Fixed::operator--()
 	return (*this);
 }
 
-Fixed	&Fixed::operator--(int)
+Fixed	Fixed::operator--(int)
 {
-	this->_value--;
-	return (*this);
+	Fixed	tmp = *this;
+	--*this;
+	return (tmp);
 }
 
 std::ostream	&operator << (std::ostream &os, const Fixed &fixed)
@@ -145,16 +147,30 @@ int	Fixed::toInt(void) const
 	return((this->_value >> this->_fractional_bit));
 }
 
-Fixed	Fixed::min(Fixed ref0, Fixed ref1)
+Fixed	Fixed::min( const Fixed &fixed1, const Fixed &fixed2)
 {
-	if (ref0._value < ref1._value)
-		return (ref0);
-	return (ref1);
+	if (fixed1.toFloat() > fixed2.toFloat())
+		return (Fixed( fixed2 ));
+	return (Fixed( fixed1 ));
 }
 
-Fixed	Fixed::max(Fixed ref0, Fixed ref1)
+Fixed	Fixed::min(Fixed &fixed1, Fixed &fixed2)
 {
-	if (ref0._value > ref1._value)
-		return (ref0);
-	return (ref1);
+	if (fixed1 > fixed2)
+		return (Fixed( fixed2 ));
+	return (Fixed( fixed1 ));
+}
+
+Fixed	Fixed::max( const Fixed &fixed1, const Fixed &fixed2)
+{
+	if (fixed1.toFloat() >= fixed2.toFloat())
+		return (Fixed( fixed1 ));
+	return (Fixed( fixed2 ));
+}
+
+Fixed	Fixed::max(Fixed &fixed1, Fixed &fixed2)
+{
+	if (fixed1 >= fixed2)
+		return (Fixed( fixed1 ));
+	return (Fixed( fixed2 ));
 }
